@@ -24,7 +24,8 @@ image = cv2.imread("./test_image/108.jpg")
 H, W, _ = image.shape
 boxes, labels, scores = detect(image, detect_session, anchors, size=size)
 for box, l in zip(boxes, labels):
-    xmin, ymin, xmax, ymax = padding_box(box)
+    # xmin, ymin, xmax, ymax = padding_box(box)    
+    xmin, ymin, xmax, ymax = box
     xmin = int(xmin * W / size[0])
     ymin = int(ymin * H / size[1])
     xmax = int(xmax * W / size[0])
